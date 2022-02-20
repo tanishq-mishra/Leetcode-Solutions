@@ -20,11 +20,8 @@ class Solution {
         do{
             fast = fast.next.next;
             slow = slow.next;
-            if(fast == null) {
-                break;
-            }
             
-        } while(fast.next != null);
+        } while(fast != null && fast.next != null);
         
         
         return slow;

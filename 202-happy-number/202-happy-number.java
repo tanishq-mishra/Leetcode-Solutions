@@ -15,7 +15,7 @@ class Solution {
         return digits;
     }
     public boolean isHappy(int n) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Set<Integer> seen = new HashSet<>();
         
         while(n != 1) {
             ArrayList<Integer> digits = getDigits(n);
@@ -31,10 +31,10 @@ class Solution {
                 return true;
             }
             
-            if(map.containsKey(product)) {
+            if(seen.contains(product)) {
                 return false;
             }
-            map.put(product, 1);
+            seen.add(product);
             
             n = product;
         }

@@ -1,20 +1,4 @@
 class Solution {
-    
-//     public ArrayList<Integer> getDigits(int n) {
-//         int numberOfDigits = (int)Math.floor(Math.log10(n) + 1);
-//         ArrayList<Integer> digits = new ArrayList<Integer>();
-//         int i =0;
-//         while(i < numberOfDigits) {
-//             int temp = n % 10;
-//             n = n/10;
-//             digits.add(temp);
-//             i++;
-            
-//         }
-        
-//         return digits;
-//     }
-    
     public int getProduct(int n) {
         int product = 0;
         

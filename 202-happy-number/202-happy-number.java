@@ -13,23 +13,11 @@ class Solution {
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();
         
-        while(n != 1) {
-            //ArrayList<Integer> digits = getDigits(n);
-            //System.out.println(digits);
-            int product = getProduct(n);
-            //System.out.println(product);
-            if(product == 1) {
-                return true;
-            }
-            
-            if(seen.contains(product)) {
-                return false;
-            }
-            seen.add(product);
-            
-            n = product;
+        while(n != 1 && !seen.contains(n)) {
+            seen.add(n);
+            n = getProduct(n);
         }
         
-        return true;
+        return n == 1;
     }
 }

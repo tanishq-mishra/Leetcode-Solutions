@@ -60,18 +60,20 @@ class Solution {
         ListNode secondPart = current.next;
         end.next = null;
         ListNode reversed = reverseList(start);
+        
+        // checking of there are nodes before the reversed section
         if(startPrev != null)
             startPrev.next = reversed;
         else {
             startPrev = reversed;
             head = reversed;
         }
+        // traversing to the end of the reversed node;
         while(startPrev.next != null) {
             startPrev = startPrev.next;
         }
         
-        
-        
+        // adding the remaining part after the reversed section.
         startPrev.next = secondPart;
         
         return head;

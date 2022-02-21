@@ -108,12 +108,6 @@ class Solution {
         // Reverse the second half;
         middle = reverseList(middle);
         // Merge the 2 Halves;
-        
-        
         head = mergeTwoLists(head, middle);
-        
-        
-        return;
-        
     }
 }

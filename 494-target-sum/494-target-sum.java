@@ -2,9 +2,11 @@ class Solution {
     HashMap<String,Integer> memo = new HashMap<>();
     public int helper(int[] nums, int target, int index, int sum) {
         String memoKey = sum + "," + index;
+        
         if(memo.containsKey(memoKey)) {
             return memo.get(memoKey);
         }
+        
         if(index == nums.length) {
             if(sum == target) {
                 return 1;

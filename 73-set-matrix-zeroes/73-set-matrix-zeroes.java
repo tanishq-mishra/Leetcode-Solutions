@@ -16,10 +16,8 @@ class Solution {
         
         
         for(int r: rows) {
-            //System.out.println(r);
+         
             for(int i = 0; i<matrix[0].length; i++) {
-                System.out.println(r + "," + i+ ", "+ matrix.length);
-                
                 matrix[r][i] = 0;
             }
         }

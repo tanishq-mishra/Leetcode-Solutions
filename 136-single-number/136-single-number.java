@@ -1,4 +1,5 @@
 class Solution {
+    // HashMap
 //     public int singleNumber(int[] nums) {
 //         HashMap<Integer, Integer> count = new HashMap<Integer, Integer>();
         
@@ -18,18 +19,33 @@ class Solution {
         
 //         return -1;
 //     }
-    
-    public int singleNumber(int[] nums) {
-        if(nums.length == 1) {
-            return nums[0];
-        }
-        Arrays.sort(nums);
+    // Sorting
+//     public int singleNumber(int[] nums) {
+//         if(nums.length == 1) {
+//             return nums[0];
+//         }
+//         Arrays.sort(nums);
         
-        for(int i = 0; i< nums.length-1; i+=2) {
-            if(nums[i] != nums[i+1]) {
-                return nums[i];
-            }
+//         for(int i = 0; i< nums.length-1; i+=2) {
+//             if(nums[i] != nums[i+1]) {
+//                 return nums[i];
+//             }
+//         }
+//         return nums[nums.length -1];
+//     }
+    
+    
+    // XORing
+    public int singleNumber(int[] nums) {
+        int ans = 0;
+        
+        for(int i : nums) {
+            ans ^= i;
         }
-        return nums[nums.length -1];
+        
+        return ans;
+        
     }
+    
+    
 }

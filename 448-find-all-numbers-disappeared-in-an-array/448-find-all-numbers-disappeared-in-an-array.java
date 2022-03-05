@@ -12,7 +12,6 @@ class Solution {
         int i = 0;
         while(i<nums.length) {
             if(nums[i] <= nums.length && nums[i]-1 != i && nums[i] != nums[nums[i]-1]) {
-                System.out.println(nums[i] +", "+ i);
                 swap(nums, i, nums[i]-1);
             } else {
                 i++;

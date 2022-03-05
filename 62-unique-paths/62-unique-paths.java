@@ -5,6 +5,7 @@ class Solution {
         if(memo.containsKey(id)) {
             return memo.get(id);
         }
+        
         if(x == m && y == n) {
             return 1;
         }
@@ -19,7 +20,9 @@ class Solution {
         
         sum += helper(x+1, y, m, n);
         sum += helper(x, y+1, m, n);
+        
         memo.put(id, sum);
+        
         return sum;
         
     }

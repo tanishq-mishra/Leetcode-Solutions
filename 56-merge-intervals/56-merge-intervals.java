@@ -2,6 +2,7 @@
 import java.util.*;   
 class Solution {
     public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingDouble(o -> o[0]));
         ArrayList<ArrayList<Integer>> inputList = new ArrayList<>();
         for(int i = 0 ; i< intervals.length; i++) {
             ArrayList<Integer> newInterval = new ArrayList<>();
@@ -9,17 +10,17 @@ class Solution {
             newInterval.add(intervals[i][1]);
             inputList.add(newInterval);
         }
-        Collections.sort(inputList, new Comparator<ArrayList<Integer>>() {
-            @Override
-            public int compare(ArrayList<Integer> one, ArrayList<Integer> two) {
-                if(one.get(0) > two.get(0)) {
-                    return 1;
-                } else if(one.get(0) < two.get(0)) {
-                    return -1;
-                }
-                return 0;
-            }
-        });   
+        // Collections.sort(inputList, new Comparator<ArrayList<Integer>>() {
+        //     @Override
+        //     public int compare(ArrayList<Integer> one, ArrayList<Integer> two) {
+        //         if(one.get(0) > two.get(0)) {
+        //             return 1;
+        //         } else if(one.get(0) < two.get(0)) {
+        //             return -1;
+        //         }
+        //         return 0;
+        //     }
+        // });   
         int i = 0;
         while(i< inputList.size()) {
             if(i < inputList.size()-1 && inputList.get(i+1).get(0) <= inputList.get(i).get(1)) {

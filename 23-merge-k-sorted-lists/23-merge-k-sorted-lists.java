@@ -115,12 +115,10 @@ class Solution {
                 res=res.next;
                 
             }
-            
-           
-            }
+        }
         
-            if(res!=null)
-                res.next=null;  // MAKING SURE LAST NODE POINTS TO NULL
+        if(res!=null)
+            res.next=null;  // MAKING SURE LAST NODE POINTS TO NULL
         
         return ans;  //RETURN HEAD NODE.
     }

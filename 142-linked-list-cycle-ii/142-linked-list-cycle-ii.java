@@ -10,51 +10,71 @@
  * }
  */
 public class Solution {
-    public int getLength(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+//     public int getLength(ListNode head) {
+//         ListNode slow = head;
+//         ListNode fast = head;
         
-        while(fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if(slow == null || fast == null) {
-                return 0;
-            }
-            if(slow == fast) {
-                ListNode temp = slow;
-                int count = 0;
-                do{
-                    temp = temp.next;
-                    count++;
-                }
-                while(temp != slow);
-                return count;
-            }
-        }
+//         while(fast != null && fast.next != null) {
+//             slow = slow.next;
+//             fast = fast.next.next;
+//             if(slow == null || fast == null) {
+//                 return 0;
+//             }
+//             if(slow == fast) {
+//                 ListNode temp = slow;
+//                 int count = 0;
+//                 do{
+//                     temp = temp.next;
+//                     count++;
+//                 }
+//                 while(temp != slow);
+//                 return count;
+//             }
+//         }
         
-        return 0;
-    }
+//         return 0;
+//     }
+//     public ListNode detectCycle(ListNode head) {
+//         int cycleLength = getLength(head);
+//         if(cycleLength == 0) {
+//             return null;
+//         }
+//         ListNode s = head;
+//         ListNode f = head;
+        
+//         while(cycleLength > 0) {
+//             s = s.next;
+//             cycleLength--;
+//         }
+//         while(s != f) {
+//             s = s.next;
+//             f = f.next;
+//         }
+        
+//         return s;
+        
+        
+//     }
+    
     public ListNode detectCycle(ListNode head) {
-        int cycleLength = getLength(head);
-        if(cycleLength == 0) {
-            return null;
-        }
-        ListNode s = head;
-        ListNode f = head;
+                ListNode slow = head;
+                ListNode fast = head;
         
-        while(cycleLength > 0) {
-            s = s.next;
-            cycleLength--;
-        }
-        while(s != f) {
-            s = s.next;
-            f = f.next;
-        }
-        
-        return s;
-        
-        
-    }
+                while (fast!=null && fast.next!=null){
+                    fast = fast.next.next;
+                    slow = slow.next;
+                    
+                    if (fast == slow){
+                        ListNode slow2 = head; 
+                        while (slow2 != slow){
+                            slow = slow.next;
+                            slow2 = slow2.next;
+                        }
+                        return slow;
+                    }
+                }
+                return null;
+            }
     
     
     // Using HashMaps

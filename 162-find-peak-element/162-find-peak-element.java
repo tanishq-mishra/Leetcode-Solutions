@@ -3,7 +3,6 @@ class Solution {
       int start = 0;
       int end = arr.length -1; 
       int mid = start + (end - start)/2;
-      int peak = 0;
       while(start < end) {
         if(arr[mid] > arr[mid + 1]) {
           end = mid;

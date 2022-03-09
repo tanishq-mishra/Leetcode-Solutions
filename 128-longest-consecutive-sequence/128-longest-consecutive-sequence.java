@@ -32,27 +32,58 @@
 // O(n) => using set;
 
 public class Solution {
-public int longestConsecutive(int[] nums) {
-    if(nums == null || nums.length == 0) return 0;
+// public int longestConsecutive(int[] nums) {
+//     if(nums == null || nums.length == 0) return 0;
     
-    Set<Integer> set = new HashSet<Integer>();
+//     Set<Integer> set = new HashSet<Integer>();
     
-    for(int num: nums) set.add(num);
-    int max = 1;
-    for(int num: nums) {
-        if(set.remove(num)) {//num hasn't been visited
-            int val = num;
-            int sum = 1;
-            while(set.remove(val-1)) val--;
-            sum += num - val;
+//     for(int num: nums) set.add(num);
+//     int max = 1;
+//     for(int num: nums) {
+//         if(set.remove(num)) {//num hasn't been visited
+//             int val = num;
+//             int sum = 1;
+//             while(set.remove(val-1)) val--;
+//             sum += num - val;
             
-            val = num;
-            while(set.remove(val+1)) val++;
-            sum += val - num;
+//             val = num;
+//             while(set.remove(val+1)) val++;
+//             sum += val - num;
             
-            max = Math.max(max, sum);
-        }
+//             max = Math.max(max, sum);
+//         }
+//     }
+//     return max;
+// }
+    
+    public int longestConsecutive(int[] nums) {
+  int max = 0;
+  
+  Set<Integer> set = new HashSet<Integer>();
+  for (int i = 0; i < nums.length; i++) {
+    set.add(nums[i]);
+  }
+  
+  for (int i = 0; i < nums.length; i++) {
+    int count = 1;
+    
+    // look left
+    int num = nums[i];
+    while (set.contains(--num)) {
+      count++;
+      set.remove(num);
     }
-    return max;
+    
+    // look right
+    num = nums[i];
+    while (set.contains(++num)) {
+      count++;
+      set.remove(num);
+    }
+    
+    max = Math.max(max, count);
+  }
+  
+  return max;
 }
 }

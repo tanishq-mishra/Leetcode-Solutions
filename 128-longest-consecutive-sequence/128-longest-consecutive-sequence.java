@@ -30,28 +30,6 @@
 // }
 
 // O(n) => using set;
-// class Solution {
-//         public int longestConsecutive(int[] nums) {
-//         HashSet set = new HashSet<>();
-//         for(int i : nums){
-//             set.add(i);
-//         }
-//         int max = 0;
-//         for(int i : nums){
-//             if(!set.contains(i-1)){
-//                 int count = i;
-//                 while(set.contains(count)){
-//                     count++;
-//                 }
-//                 max = Math.max(count - i, max);
-//             }
-//         }
-//         return max;
-//     }
-// }
-
-
-
 
 public class Solution {
 public int longestConsecutive(int[] nums) {

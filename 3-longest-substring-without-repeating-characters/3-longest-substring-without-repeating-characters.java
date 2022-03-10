@@ -11,7 +11,7 @@ class Solution {
         while(end < c.length-1) {
             end++;
             int i = end;
-            while( i >start && i > 0 && c[i-1] != c[end]) {
+            while( i > start && i > 0 && c[i-1] != c[end]) {
                 i--;
             }
             start = i;

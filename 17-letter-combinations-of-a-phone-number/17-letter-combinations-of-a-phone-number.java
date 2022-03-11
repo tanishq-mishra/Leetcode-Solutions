@@ -1,14 +1,14 @@
 class Solution {
     String[] numpad ={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-    public void helper(String p, String digits, List<String> ans) {
-        if(digits.length() == 0) {
+    public void helper(String p, int index, String digits, List<String> ans) {
+        if(digits.length() == index) {
             ans.add(p);
             return;
         }
-        int currentDigit = Character.getNumericValue(digits.charAt(0));
+        int currentDigit = Character.getNumericValue(digits.charAt(index));
         List<String> fromBelowCalls = new ArrayList<>();
         for(int i = 0; i < numpad[currentDigit].length(); i++) {
-            helper(p+numpad[currentDigit].charAt(i), digits.substring(1), ans);
+            helper(p+numpad[currentDigit].charAt(i),index+1, digits, ans);
         }
     }
     public List<String> letterCombinations(String digits) {
@@ -16,7 +16,7 @@ class Solution {
             return new ArrayList<>();
         }
         List<String> ans = new ArrayList<>();
-        helper("", digits, ans);
+        helper("", 0,digits, ans);
         return ans;
     }
 }

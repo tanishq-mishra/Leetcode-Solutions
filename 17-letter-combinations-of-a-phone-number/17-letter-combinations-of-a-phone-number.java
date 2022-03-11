@@ -6,7 +6,7 @@ class Solution {
             ans.add(p);
             return ans;
         }
-        int currentDigit = Integer.parseInt(digits.substring(0, 1));
+        int currentDigit = Character.getNumericValue(digits.charAt(0));
         List<String> fromBelowCalls = new ArrayList<>();
         for(int i = 0; i < numpad[currentDigit].length(); i++) {
             fromBelowCalls.addAll(helper(p+numpad[currentDigit].charAt(i), digits.substring(1)));

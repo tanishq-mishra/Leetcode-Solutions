@@ -6,7 +6,6 @@ class Solution {
             return;
         }
         int currentDigit = Character.getNumericValue(digits.charAt(index));
-        List<String> fromBelowCalls = new ArrayList<>();
         for(int i = 0; i < numpad[currentDigit].length(); i++) {
             helper(p+numpad[currentDigit].charAt(i),index+1, digits, ans);
         }

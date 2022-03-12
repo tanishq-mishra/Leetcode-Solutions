@@ -4,8 +4,6 @@ class Solution {
         for(int i : nums) {
             if(!set.add(i)) {
                 return true;
-            } else {
-                set.add(i);
             }
         }
         

@@ -67,10 +67,7 @@ class Solution {
             }
             return false;
         } 
-        if(c == board.length -1)
-            return helper(board, r+1, 0);
-        else 
-            return helper(board, r, c+1);
+        return helper(board, r, c+1);
         
     }
     public void solveSudoku(char[][] board) {

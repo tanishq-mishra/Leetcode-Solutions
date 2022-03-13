@@ -27,6 +27,9 @@ class Solution {
         
         if(root.left != null) {
             left = Math.min(left, minDepth(root.left));
+            if(left == 1) {
+                return 2;
+            }
         }
         
         if(root.right != null) {

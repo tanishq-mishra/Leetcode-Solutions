@@ -1,6 +1,6 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        if(s.length() < k) {
+        if(s.length() <= k) {
             return s.length();
         }
         char[] c = s.toCharArray();

@@ -24,9 +24,10 @@ class Solution {
             } 
             
             else if (end == nums.length){
-                currentSum -=nums[start];
-                start++;
+                break;
             } 
+            
+            
             
         }
         

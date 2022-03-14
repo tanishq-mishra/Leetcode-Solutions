@@ -1,42 +1,40 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        char[] c1 = s1.toCharArray();
-        char[] c2 = s2.toCharArray();
+        if (s1.length() > s2.length()) return false;
         
-        int windowSize = c1.length;
+        int[] count1 = new int[26];
+        int[] count2 = new int[26];
         
-        int start = 0;
-        int end = c1.length-1;
-        boolean[] selected = new boolean[c1.length];
-        
-        while(end <c2.length) {
-            int flag = 0;
-            for(int i = 0 ; i<selected.length; i++) {
-                selected[i] = false;
-            }
-            
-            for(int i = 0 ; i< c1.length; i++) {
-                for(int j = start; j<=end; j++) {
-                    if(c1[i] == c2[j]) {
-                        if(!selected[j%windowSize]) {
-                            selected[j%windowSize] = true;
-                            flag++;
-                            break;
-                        }
-                        
-                    }
-                        
-                }
-            }
-            if(flag == windowSize) {
-                return true;
-            }
-            start = start + windowSize-flag;
-            end = end + windowSize-flag;
-            
+        for (int i = 0;i<s1.length();i++) {
+            count1[s1.charAt(i) - 'a']++;
+            count2[s2.charAt(i) - 'a']++;
         }
         
+        int start = 0, end = s1.length() - 1;
+        
+        while (end < s2.length()) {
+            if (checkIfSame(count1, count2))
+                return true;
+            
+            count2[s2.charAt(start) - 'a']--;
+            start++;
+            end++;
+            if (end < s2.length()) count2[s2.charAt(end) - 'a']++;
+        }
         
         return false;
+        
+    }
+    
+    public boolean checkIfSame(int[] count1, int[] count2) {
+        int p1 = 0, p2 = 0;
+        
+        while (p1 < 26 && p2 < 26) {
+            if (count1[p1] != count2[p2])
+                return false;
+            p1++;p2++;
+        }
+        
+        return true;
     }
 }

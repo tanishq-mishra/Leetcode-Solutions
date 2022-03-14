@@ -6,7 +6,6 @@ class Solution {
         int end = 1;
         int size = 1;
         while(end < fruits.length) {
-            //System.out.println("Start = " + start + " End = " + end + " Size = " + size);
             
             if(!fruitType.add(fruits[end])) {
                 end++;

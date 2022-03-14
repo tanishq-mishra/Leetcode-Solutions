@@ -27,25 +27,6 @@ class Solution {
                 currentSum -=nums[start];
                 start++;
             } 
-            // else {
-            //     currentSum -=nums[start];
-            //     start++;
-            // }
-            
-            // if(currentSum >= target) {
-            //     //System.out.println(end-start);
-            //     minSize = Math.min(minSize, end-start);
-            // } 
-            
-            // else {
-            //     currentSum +=nums[end];
-            //     end++;
-            // }
-            
-            // if(start>=end) {
-            //     end = start +1;
-            //     currentSum = nums[start];
-            // }
             
         }
         

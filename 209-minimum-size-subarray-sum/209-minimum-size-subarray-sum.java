@@ -1,40 +1,25 @@
 class Solution {
-    public int minSubArrayLen(int target, int[] nums) {
-        int start = 0;
-        int end = 1;
-        int currentSum = nums[0];
-        int minSize = Integer.MAX_VALUE;
-        while(start < end && end <= nums.length) {
-            //System.out.println(start+", "+ end + " Sum = " + currentSum);
-            if(currentSum >= target) {
-                //System.out.println(end-start);
-                minSize = Math.min(minSize, end-start);
-            } 
-            if(currentSum < target && end != nums.length) {
-                    currentSum +=nums[end];
-                    end++;
-            
-            } else if(currentSum > target) {
-                currentSum -=nums[start];
-                start++;
-            } 
-            else if(end <nums.length) {
-                currentSum +=nums[end];
-                end++;
-            } 
-            
-            else if (end == nums.length){
-                break;
-            } 
-            
-            
-            
+    public int minSubArrayLen(int s, int[] nums) {
+        // define pointers for sliding window
+        int p1 = 0; int p2 = 0;
+        // define min & sum
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+        int n = nums.length;
+        // min sub array length
+        while(p2 < n) {
+            // first add the current element
+            sum = sum + nums[p2];
+            // contraction of window
+            while(sum >= s) {
+                min = Math.min(min,p2 - p1 + 1);
+                sum = sum - nums[p1];
+                p1++;
+            }
+            // Increment the p2
+            p2++;
         }
-        
-        if(minSize == Integer.MAX_VALUE) {
-            return 0;
-        }
-        
-        return minSize;
+        // return res
+        return min == Integer.MAX_VALUE ? 0 : min;
     }
 }

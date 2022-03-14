@@ -1,5 +1,8 @@
 class Solution {
     public int characterReplacement(String s, int k) {
+        if(s.length() < k) {
+            return s.length();
+        }
         char[] c = s.toCharArray();
         HashMap<Character, Integer> count = new HashMap<>();
         int start =0;

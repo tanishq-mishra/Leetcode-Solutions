@@ -27,21 +27,40 @@
 
 
 
+// class Solution {
+//     public int eraseOverlapIntervals(int[][] intervals) {
+//         Arrays.sort(intervals, (a, b) -> a[1] - b[1]);
+        
+//         int count = 0;
+//         int end = intervals[0][0];
+        
+//         for (int i = 0; i < intervals.length; i++) {
+//             if (intervals[i][0] < end) {
+//                 count++;
+//             } else {
+//                 end = intervals[i][1];
+//             }
+//         }
+        
+//         return count;
+//     }
+// }
+
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
+        // greedy
         Arrays.sort(intervals, (a, b) -> a[1] - b[1]);
         
-        int count = 0;
-        int end = intervals[0][0];
-        
-        for (int i = 0; i < intervals.length; i++) {
-            if (intervals[i][0] < end) {
-                count++;
-            } else {
-                end = intervals[i][1];
+        int n = intervals.length;
+
+        int ans = 1;
+        int right = intervals[0][1];
+        for(int i = 0; i<n; i++) {
+            if(intervals[i][0] >= right) {
+                right = intervals[i][1];
+                ans++;
             }
         }
-        
-        return count;
+        return n-ans;
     }
 }

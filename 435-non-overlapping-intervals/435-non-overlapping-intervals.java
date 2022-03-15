@@ -21,9 +21,7 @@ class Solution {
                 maxLast = intervals[i+1][1] ;
             }
         }
-        
         return counter;
-        
     }
 }
 

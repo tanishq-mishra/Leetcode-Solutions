@@ -12,11 +12,8 @@ class Solution {
                 newInterval = null;
                 ans.add(i);
             } else {
-                
                 newInterval[0] = Math.min(newInterval[0], i[0]);
                 newInterval[1] = Math.max(newInterval[1], i[1]);
-                // ans.add(newInterval);
-                // newInterval = null;
             }
         }
         

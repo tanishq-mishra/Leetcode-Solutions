@@ -22,9 +22,6 @@ class Solution {
             return ans;
         }
         Queue<TreeNode> q = new LinkedList<>();
-        Stack<TreeNode> st = new Stack<>();
-        
-        
         q.add(root);
         q.add(null);
         List<Integer> level = new ArrayList<>();

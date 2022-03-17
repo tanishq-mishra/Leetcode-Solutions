@@ -21,38 +21,58 @@ class Node {
 };
 */
 
+// class Solution {
+//     public Node connect(Node root) {
+//         if(root == null) {
+//             return root;
+//         }
+//         Queue<Node> q = new LinkedList<>();
+        
+//         q.add(root);
+//         q.add(null);
+        
+//         while(!q.isEmpty()) {
+//             Node current = q.poll();
+            
+//             if(current == null) {
+//                 if(q.isEmpty()) {
+//                     break;
+                    
+//                 }
+//                 q.add(null);
+//             } else {
+//                 current.next = q.peek();
+                
+//                 if(current.left != null) {
+//                     q.add(current.left);
+//                 }
+//                 if(current.right != null) {
+//                     q.add(current.right);
+//                 }
+//             }
+//         }
+        
+//         return root;
+        
+//     }
+// }
+
+
 class Solution {
     public Node connect(Node root) {
-        if(root == null) {
-            return root;
-        }
-        Queue<Node> q = new LinkedList<>();
-        
-        q.add(root);
-        q.add(null);
-        
-        while(!q.isEmpty()) {
-            Node current = q.poll();
-            
-            if(current == null) {
-                if(q.isEmpty()) {
-                    break;
-                    
-                }
-                q.add(null);
-            } else {
-                current.next = q.peek();
-                
-                if(current.left != null) {
-                    q.add(current.left);
-                }
-                if(current.right != null) {
-                    q.add(current.right);
-                }
-            }
-        }
-        
+        if (root == null) return root;
+        inOrderConnect(root);
         return root;
-        
+    }
+    
+    public void inOrderConnect(Node root) {
+        if (root.left == null && root.right == null)
+            return;
+        if (root.left.next == null)
+            root.left.next = root.right;
+        if (root.right.next == null && root.next != null)
+            root.right.next = root.next.left;
+        inOrderConnect(root.left);
+        inOrderConnect(root.right);
     }
 }

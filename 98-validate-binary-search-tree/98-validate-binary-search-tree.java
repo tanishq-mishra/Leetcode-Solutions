@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    List<Integer> inorderList = new LinkedList<>();
+    List<Integer> inorderList = new ArrayList<>();
     public void helper(TreeNode root) {
         if(root == null) {
             return;

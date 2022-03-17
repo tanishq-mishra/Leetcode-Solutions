@@ -26,6 +26,9 @@ class Solution {
         
         boolean left = helper(root.left);
         inorderList.add(root.val);
+        if(left == false) {
+            return false;
+        }
         boolean right =helper(root.right);
         
         return left && right;

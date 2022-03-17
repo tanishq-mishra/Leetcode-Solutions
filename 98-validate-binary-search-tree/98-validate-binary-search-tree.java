@@ -15,27 +15,23 @@
  */
 class Solution {
     List<Integer> inorderList = new ArrayList<>();
-    public void helper(TreeNode root) {
+    public boolean helper(TreeNode root) {
+        if(inorderList.size()>1) {
+            if(inorderList.get(inorderList.size()-1) <=inorderList.get(inorderList.size()-2))
+                return false;
+        }
         if(root == null) {
-            return;
+            return true;
         }
         
-        helper(root.left);
+        boolean left = helper(root.left);
         inorderList.add(root.val);
-        helper(root.right);
+        boolean right =helper(root.right);
         
-        
+        return left && right;
     }
     public boolean isValidBST(TreeNode root) {
-        
-        helper(root);
-        
-        for(int i =0; i<inorderList.size()-1; i++) {
-            if(inorderList.get(i) >= inorderList.get(i+1)) {
-                return false;
-            }
-        }
-        return true;
+        return helper(root);
         
         
     }

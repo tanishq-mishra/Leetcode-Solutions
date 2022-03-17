@@ -14,7 +14,6 @@ class Solution {
             if(pivot > nums[i]) {
                 swap(nums, i, start);
             }
-            
             return j;
         }
         
@@ -49,9 +48,6 @@ class Solution {
             
             
         }
-        
-        
-        
         
     }
     public int findKthLargest(int[] nums, int k) {

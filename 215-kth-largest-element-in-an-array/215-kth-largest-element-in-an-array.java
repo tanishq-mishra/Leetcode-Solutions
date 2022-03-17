@@ -61,10 +61,6 @@ class Solution {
         this.pos = nums.length - k;
         
         quickSelect(nums, 0, nums.length-1);
-        // for(int i : nums) {
-        //     System.out.print(i + "  ");
-        // }
-        // System.out.println();
         if(element == Integer.MIN_VALUE)
             element = nums[pos];
         

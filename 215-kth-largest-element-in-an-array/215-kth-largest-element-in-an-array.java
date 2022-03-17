@@ -48,7 +48,7 @@ class Solution {
         
     }
     public void quickSelect(int[] nums, int start, int end) {
-        if(start < end) {
+        if(start < end && element == Integer.MIN_VALUE) {
             int p = findpivot(nums, start, end);
             if(p == pos) {
                 element = nums[p];

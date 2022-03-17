@@ -10,11 +10,6 @@ class Solution {
         int pivot = nums[start];
         int i = start+1;
         int j = end;
-        // System.out.println("Before ");
-        // for(int k = start; k<=end ; k++) {
-        //     System.out.print(nums[k] + "  ");
-        // }
-        // System.out.println();
         if(i == j) {
             if(pivot > nums[i]) {
                 swap(nums, i, start);
@@ -34,15 +29,7 @@ class Solution {
                 swap(nums, i, j);
             }
         }
-        
-        
-        
         swap(nums, j, start);
-        // System.out.println("After ");
-        // for(int k = start; k<=end ; k++) {
-        //     System.out.print(nums[k] + "  ");
-        // }
-        // System.out.println();
         return j;
         
         
@@ -54,8 +41,13 @@ class Solution {
                 element = nums[p];
                 return;
             }
-            quickSelect(nums, start, p-1);
-            quickSelect(nums, p+1, end);
+            if(p > pos) {
+                quickSelect(nums, start, p-1);
+            } else {
+                quickSelect(nums, p+1, end);
+            }
+            
+            
         }
         
         

@@ -15,20 +15,20 @@
  */
 class Solution {
     int preStart = 0;
+    HashMap<Integer, Integer> inorderMap = new HashMap();
     public TreeNode helper( int inStart, int inEnd, int[] preorder, int[] inorder) {
-        //System.out.print()
         if(preStart >= preorder.length || inStart > inEnd) {
             return null;
         }
         
         TreeNode root = new TreeNode(preorder[preStart++]);
         
-        int inIndex = 0;
-        for(int i = inStart; i<=inEnd;i++) {
-            if(root.val == inorder[i]) {
-                inIndex = i;
-            }
-        }
+        int inIndex = inorderMap.get(root.val);
+        // for(int i = inStart; i<=inEnd;i++) {
+        //     if(root.val == inorder[i]) {
+        //         inIndex = i;
+        //     }
+        // }
         
         root.left = helper(inStart, inIndex-1, preorder, inorder);
         root.right = helper(inIndex + 1, inEnd, preorder, inorder);
@@ -39,6 +39,9 @@ class Solution {
     }
     
     public TreeNode buildTree(int[] preorder, int[] inorder) {
+        for(int i = 0; i< inorder.length; i++) {
+            inorderMap.put(inorder[i], i);
+        }
         return helper(0, inorder.length-1, preorder, inorder);
     }
 }

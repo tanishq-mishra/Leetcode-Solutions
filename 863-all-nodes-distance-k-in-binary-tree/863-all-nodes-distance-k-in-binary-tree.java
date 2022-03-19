@@ -28,7 +28,7 @@ class Solution {
             visited.add(root);
             if(k == 0) {
                 ans.add(root.val);
-            return;
+                return;
             } else {
                 getNodes(root.left, k-1);
                 getNodes(root.right, k-1);

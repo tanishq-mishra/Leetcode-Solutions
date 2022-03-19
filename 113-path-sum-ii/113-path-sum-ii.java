@@ -26,8 +26,6 @@ class Solution {
             listSoFar.remove(listSoFar.size()-1);
             return;
         }
-        
-        
             targetSum -= root.val;
             listSoFar.add(root.val);
             if(root.left != null) {
@@ -37,20 +35,10 @@ class Solution {
                 helper(root.right, targetSum, listSoFar);
             }
             
-            listSoFar.remove(listSoFar.size()-1);
-        
-        
-        
-        
-        
-        
-        
-        
+            listSoFar.remove(listSoFar.size()-1);    
     }
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         helper(root, targetSum, new ArrayList<>());
-        
-        
         return sumList;
         
     }

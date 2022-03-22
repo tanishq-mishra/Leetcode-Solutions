@@ -26,9 +26,11 @@ class Solution {
         int islands = 0;
         for(int i =0; i<grid.length; i++) {
             for(int j = 0; j<grid[0].length; j++) {
-                if(grid[i][j] == '1' && !visited[i][j]) {
+                if(!visited[i][j] && grid[i][j] == '1') {
                     dfs(i,j, grid);
                     islands++;
+                } else {
+                    visited[i][j] = true;
                 }
             }
         }

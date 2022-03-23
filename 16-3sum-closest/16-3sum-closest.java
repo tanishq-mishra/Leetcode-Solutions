@@ -6,10 +6,11 @@ class Solution {
             int j = i+1;
             int k = nums.length-1;
             while(j<k) {
-                if(Math.abs(target - currentClosest) > Math.abs(target - (nums[i] + nums[j] + nums[k]))) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if(Math.abs(target - currentClosest) > Math.abs(target - sum)){
                     currentClosest = nums[i] + nums[j] + nums[k];
                 } 
-                if( target > nums[i] + nums[j] + nums[k]) {
+                if( target > sum) {
                     j++;
                 } else {
                     k--;

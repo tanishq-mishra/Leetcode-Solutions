@@ -8,7 +8,7 @@ class Solution {
             while(j<k) {
                 int sum = nums[i] + nums[j] + nums[k];
                 if(Math.abs(target - currentClosest) > Math.abs(target - sum)){
-                    currentClosest = nums[i] + nums[j] + nums[k];
+                    currentClosest = sum;
                 } 
                 if( target > sum) {
                     j++;

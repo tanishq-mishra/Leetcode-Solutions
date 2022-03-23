@@ -3,7 +3,6 @@ class Solution {
         Arrays.sort(nums);
         int currentClosest = nums[0] + nums[1] + nums[2];
         for(int i = 0; i< nums.length -2; i++) {
-            int difference = target - nums[i];
             int j = i+1;
             int k = nums.length-1;
             while(j<k) {
@@ -16,8 +15,6 @@ class Solution {
                     k--;
                 }
             }
-            
-            
         }
         return currentClosest;
     }

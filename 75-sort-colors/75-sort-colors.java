@@ -24,9 +24,6 @@ class Solution {
                 j--;
             } 
         }
-        
-        //System.out.println(i);
-        //System.out.println(j);
         while(j > 0 && nums[j] == 2) {
             j--;
         }

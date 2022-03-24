@@ -9,7 +9,7 @@ class Solution {
     public void sortColors(int[] nums) {
         int i = 0;
         int j = nums.length-1;
-        
+        // Put the 2s to the right
         while(i < j) {
             while(i<j && nums[i] !=2 ) {
                 i++;
@@ -24,11 +24,15 @@ class Solution {
                 j--;
             } 
         }
+        
+        
         while(j > 0 && nums[j] == 2) {
             j--;
         }
         
         i = 0;
+        
+        // Sort 0s and 1s;
         while(i<j) {
             while(i<j && nums[i] == 0) {
                 i++;

@@ -6,14 +6,13 @@ class Solution {
         int j = 0;
         
         while(j < nums.length) {
-            currentProduct *= nums[j];
-            if(currentProduct < k) {
+            if(currentProduct*nums[j] < k) {
+                currentProduct*=nums[j];
                 result += (j-i)+1;
                 
                 j++;
             } else {
                 currentProduct /= nums[i];
-                currentProduct /= nums[j];
                 if(i<j) {
                     i++;
                 }else {

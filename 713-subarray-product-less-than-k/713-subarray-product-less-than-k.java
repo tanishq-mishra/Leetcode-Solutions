@@ -7,7 +7,6 @@ class Solution {
         
         while(j < nums.length) {
             currentProduct *= nums[j];
-            System.out.println(currentProduct);
             if(currentProduct < k) {
                 result += (j-i)+1;
                 
@@ -15,7 +14,6 @@ class Solution {
             } else {
                 currentProduct /= nums[i];
                 currentProduct /= nums[j];
-                System.out.println("After removing " + currentProduct);
                 if(i<j) {
                     i++;
                 }else {

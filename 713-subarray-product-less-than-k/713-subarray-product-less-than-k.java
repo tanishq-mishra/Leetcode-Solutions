@@ -22,8 +22,6 @@ class Solution {
                     j = i;
                 }
             }
-            
-            
         }
         return result;
     }

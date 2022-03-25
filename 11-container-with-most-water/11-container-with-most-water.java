@@ -5,6 +5,7 @@ class Solution {
         int maxArea = Integer.MIN_VALUE;
         
         while(i < j) {
+            
             int currentArea = (j - i) * Math.min(height[i], height[j]);
             maxArea = Math.max(currentArea, maxArea);
             

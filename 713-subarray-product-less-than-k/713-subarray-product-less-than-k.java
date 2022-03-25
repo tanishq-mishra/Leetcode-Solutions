@@ -9,7 +9,6 @@ class Solution {
             if(currentProduct*nums[j] < k) {
                 currentProduct*=nums[j];
                 result += (j-i)+1;
-                
                 j++;
             } else {
                 currentProduct /= nums[i];

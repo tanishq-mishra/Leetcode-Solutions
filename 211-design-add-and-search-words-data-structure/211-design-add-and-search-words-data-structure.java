@@ -11,6 +11,9 @@ class WordDictionary {
             children = new HashMap<>();
         }
     }
+    
+    
+    
 
     public WordDictionary() {
         root = new Node('\0');

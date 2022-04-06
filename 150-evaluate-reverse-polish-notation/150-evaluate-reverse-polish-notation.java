@@ -1,7 +1,4 @@
 class Solution {
-    public static boolean isNumeric(String str) {
-      return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
-    }
     public int evaluate (int exp1, int exp2, String op) {
         if(op.equals("+"))
             return exp1 + exp2;
@@ -17,8 +14,7 @@ class Solution {
         List<Integer> stack = new ArrayList<>();
         
         for(String t: tokens) {
-            //System.out.println(stack);
-            if(isNumeric(t)) {
+            if(!t.equals("+") && !t.equals("-") && !t.equals("/") && !t.equals("*")) {
                 stack.add(Integer.parseInt(t));
             } else {
                 int exp2 = stack.get(stack.size()-1);

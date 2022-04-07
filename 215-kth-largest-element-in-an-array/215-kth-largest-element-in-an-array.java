@@ -12,7 +12,7 @@ class Solution {
         int j = end;
         if(i == j) {
             if(pivot > nums[i]) {
-                swap(nums, i, start);
+                swap(nums, j, start);
             }
             return j;
         }

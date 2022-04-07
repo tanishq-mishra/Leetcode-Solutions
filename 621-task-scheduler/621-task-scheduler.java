@@ -18,7 +18,7 @@ class Solution {
         } 
 
         int time = 0;
-        Queue<List<Integer>> runningQueue = new LinkedList<>();
+        List<List<Integer>> runningQueue = new ArrayList<>();
 
         while(!pq.isEmpty() || !runningQueue.isEmpty()) {
             time++;
@@ -35,8 +35,9 @@ class Solution {
                 }
             }
             if(!runningQueue.isEmpty()) {
-                if(runningQueue.peek().get(1) == time) {
-                    pq.add(runningQueue.poll().get(0));
+                if(runningQueue.get(0).get(1) == time) {
+                    pq.add(runningQueue.get(0).get(0));
+                    runningQueue.remove(0);
                 }
             }
             

@@ -35,16 +35,8 @@ class Solution {
                  if(current != null) {
                      next = current.next;
                  }
-                     
-                
-             }
-             
-             
-             
-             
+             }  
          }
         return newHead;
-        
-        
     }
 }

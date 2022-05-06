@@ -29,10 +29,6 @@ class Solution {
         
         int splitting = sumLeft + root.val + sumRight;
         maxSum = Math.max(maxSum, splitting);
-        
-            
-        
-        
         return root.val + Math.max(sumRight, sumLeft);
     }
     

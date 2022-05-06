@@ -33,8 +33,9 @@ class Solution {
             
         
         
-        return Math.max(root.val ,root.val + Math.max(sumRight, sumLeft));
+        return root.val + Math.max(sumRight, sumLeft);
     }
+    
     public int maxPathSum(TreeNode root) {
         
         helper(root);

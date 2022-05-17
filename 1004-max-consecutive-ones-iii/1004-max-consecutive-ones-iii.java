@@ -22,9 +22,9 @@ class Solution {
                     }
                 }
             }
-                
-            max = Math.max(end-start, max);
-            
+            if(end-start > max) {
+                max =end-start; 
+            }
         }
         
         

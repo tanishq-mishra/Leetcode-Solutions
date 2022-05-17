@@ -8,7 +8,6 @@ class Solution {
         while(end < nums.length) {
             if(nums[end] == 1) {
                 end++;
-                
             } else if(nums[end] == 0) {
                 if(flipped < k) {
                     end++;

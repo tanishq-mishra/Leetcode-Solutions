@@ -14,11 +14,9 @@ class Solution {
                     flipped++;
                 } else if(flipped == k) {
                     if(nums[start] == 0) {
-                        start++;
                         flipped--;
-                    } else {
-                        start++;
                     }
+                    start++;
                 }
             }
             if(end-start > max) {

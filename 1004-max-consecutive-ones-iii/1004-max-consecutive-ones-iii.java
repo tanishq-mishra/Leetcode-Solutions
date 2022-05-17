@@ -19,9 +19,8 @@ class Solution {
                     start++;
                 }
             }
-            if(end-start > max) {
-                max = end-start; 
-            }
+            
+            max = Math.max(end-start, max);
         }
         
         return max;

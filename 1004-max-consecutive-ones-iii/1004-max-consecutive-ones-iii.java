@@ -20,7 +20,7 @@ class Solution {
                 }
             }
             if(end-start > max) {
-                max =end-start; 
+                max = end-start; 
             }
         }
         

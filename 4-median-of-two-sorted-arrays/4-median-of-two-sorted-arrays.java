@@ -15,7 +15,6 @@ class Solution {
             
             mid = (int)Math.floor((start + end)/2.0);
             int mid2 = halfLength - mid - 2;
-            System.out.println(mid2);
             int nums1Left = mid<0 ? Integer.MIN_VALUE: nums1[mid];
             int nums1Right = mid+1>=nums1.length ? Integer.MAX_VALUE : nums1[mid+1];
             int nums2Left = mid2<0 ? Integer.MIN_VALUE: nums2[mid2];

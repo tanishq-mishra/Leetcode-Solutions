@@ -1,16 +1,11 @@
 class Solution {
     public int[] countBits(int n) {
         int[] res = new int[n+1];
-        //HashMap<Integer, Integer> memo = new HashMap<>();
+        int num;
         for(int i = 0; i<res.length;i++) {
-            int sum = 0;
-            int num = i;
+            num = i;
             
-            sum = (num%2);
-            num /=2;
-            sum+=res[num];
-            
-            res[i] = sum;
+            res[i] = (num%2)+res[num/2];
         }
         
         

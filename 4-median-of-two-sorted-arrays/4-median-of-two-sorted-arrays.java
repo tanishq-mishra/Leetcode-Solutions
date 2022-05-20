@@ -12,7 +12,6 @@ class Solution {
         int halfLength = totalLength/2;
         
         while(true) {
-            System.out.println(end);
             
             mid = (int)Math.floor((start + end)/2.0);
             int mid2 = halfLength - mid - 2;

@@ -12,8 +12,12 @@ class Solution {
         int halfLength = totalLength/2;
         
         while(true) {
+            if(start+end < 0) {
+                mid = -1;
+            } else {
+                mid = (start + end)/2;
+            }
             
-            mid = (int)Math.floor((start + end)/2.0);
             int mid2 = halfLength - mid - 2;
             int nums1Left = mid<0 ? Integer.MIN_VALUE: nums1[mid];
             int nums1Right = mid+1>=nums1.length ? Integer.MAX_VALUE : nums1[mid+1];

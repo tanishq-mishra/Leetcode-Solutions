@@ -1,10 +1,8 @@
 class Solution {
     List<List<Integer>> res = new ArrayList<>();
     public void helper(int k,  int n, List<Integer> combi ) {
-        if(n == 0) {
-            if(combi.size() == k) {
-                res.add(new ArrayList<>(combi));
-            }
+        if(n == 0 && combi.size() == k) {
+            res.add(new ArrayList<>(combi));
             return;
         }
         if(combi.size()>=k) {

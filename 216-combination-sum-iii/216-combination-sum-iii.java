@@ -11,6 +11,9 @@ class Solution {
         if(n<0) {
             return;
         }
+        if(combi.size()>=k) {
+            return;
+        }
         int start = combi.size() == 0 ? 1: combi.get(combi.size()-1)+1;
         for(int i =start ; i<=9 && i<=n; i++) {
                 combi.add(i);

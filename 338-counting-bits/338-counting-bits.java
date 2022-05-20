@@ -5,9 +5,11 @@ class Solution {
         for(int i = 0; i<res.length;i++) {
             int sum = 0;
             int num = i;
+            
             sum = (num%2);
             num /=2;
             sum+=res[num];
+            
             res[i] = sum;
         }
         

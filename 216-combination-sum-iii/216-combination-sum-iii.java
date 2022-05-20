@@ -7,10 +7,6 @@ class Solution {
             }
             return;
         }
-        
-        if(n<0) {
-            return;
-        }
         if(combi.size()>=k) {
             return;
         }

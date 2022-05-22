@@ -16,20 +16,15 @@
 class Solution {
     
     public int counter = 0;
-    public HashSet<List<TreeNode>> paths = new HashSet<>();
     public void helper(TreeNode root, int targetSum, int originalSum) {
-         
-        
         if(root == null) {
             return;
         }
         
         if(targetSum-root.val == 0) {
             counter++;
-        } 
-        
-        
-
+        }
+            
             helper(root.left,targetSum-root.val,originalSum);
             helper(root.right, targetSum-root.val,originalSum);
             

@@ -97,7 +97,7 @@ class Solution {
     
     public Node cloneGraph (Node node) {
         
-        boolean iterative = false;
+        boolean iterative = true;
         
         if(iterative) {
             return cloneGraphIterative(node);

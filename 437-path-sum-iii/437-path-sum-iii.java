@@ -37,7 +37,6 @@ class Solution {
             return;
         
         helper(root, targetSum, targetSum);
-        
         traverse(root.left, targetSum);
         traverse(root.right, targetSum);
         

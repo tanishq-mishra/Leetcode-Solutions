@@ -27,25 +27,19 @@ class Solution {
             
             helper(root.left,targetSum-root.val,originalSum);
             helper(root.right, targetSum-root.val,originalSum);
-            
-
     }
     
     
     public void traverse(TreeNode root, int targetSum) {
         if(root == null) 
             return;
-        
         helper(root, targetSum, targetSum);
         traverse(root.left, targetSum);
         traverse(root.right, targetSum);
         
     }
     public int pathSum(TreeNode root, int targetSum) {
-        
         traverse(root, targetSum);
-        
-        
         return counter;
     }
 } 

@@ -31,9 +31,7 @@ class Solution {
         if(root == null) {
             return;
         }
-        
 
-            
             helper(root.left,targetSum-root.val,originalSum);
             helper(root.right, targetSum-root.val,originalSum);
             

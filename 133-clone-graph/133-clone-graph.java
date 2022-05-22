@@ -18,59 +18,85 @@ class Node {
 }
 */
 
-class Solution {
-    public Node cloneGraph(Node node) {
-        if(node == null) {
-            return node;
-        }
+// Janky Logic
+
+// class Solution {
+//     public Node cloneGraph(Node node) {
+//         if(node == null) {
+//             return node;
+//         }
         
-        if(node.neighbors.size() == 0) {
-            return new Node(node.val);
-        }
-        List<Node> queueOriginal = new ArrayList<>();
-        List<Node> queueCopy = new ArrayList<>();
-        HashSet<Node> visited = new HashSet<>();
-        HashMap<Node, Node> pairs = new HashMap<>();
-        queueOriginal.add(node);
-        while(!queueOriginal.isEmpty()) {
-            Node current = queueOriginal.get(0);
-            queueOriginal.remove(0);
+//         if(node.neighbors.size() == 0) {
+//             return new Node(node.val);
+//         }
+//         List<Node> queueOriginal = new ArrayList<>();
+//         List<Node> queueCopy = new ArrayList<>();
+//         HashSet<Node> visited = new HashSet<>();
+//         HashMap<Node, Node> pairs = new HashMap<>();
+//         queueOriginal.add(node);
+//         while(!queueOriginal.isEmpty()) {
+//             Node current = queueOriginal.get(0);
+//             queueOriginal.remove(0);
         
-            if(!visited.contains(current)) {
-                visited.add(current);
-                for(Node neighbor : current.neighbors) {
-                    queueOriginal.add(neighbor);
-                    if(!pairs.containsKey(neighbor)) {
-                        pairs.put(neighbor,new Node(neighbor.val));
-                    }
+//             if(!visited.contains(current)) {
+//                 visited.add(current);
+//                 for(Node neighbor : current.neighbors) {
+//                     queueOriginal.add(neighbor);
+//                     if(!pairs.containsKey(neighbor)) {
+//                         pairs.put(neighbor,new Node(neighbor.val));
+//                     }
                     
-                }
-            }
-        }
+//                 }
+//             }
+//         }
         
-        visited.clear();
-        queueOriginal.add(node);
-        queueCopy.add(pairs.get(node));
-        Node copy = pairs.get(node);
-        while(!queueOriginal.isEmpty()) {
-            Node current = queueOriginal.get(0);
-            queueOriginal.remove(0);
+//         visited.clear();
+//         queueOriginal.add(node);
+//         queueCopy.add(pairs.get(node));
+//         Node copy = pairs.get(node);
+//         while(!queueOriginal.isEmpty()) {
+//             Node current = queueOriginal.get(0);
+//             queueOriginal.remove(0);
             
-            Node currentCopy = queueCopy.get(0);
-            queueCopy.remove(0);
+//             Node currentCopy = queueCopy.get(0);
+//             queueCopy.remove(0);
         
-            if(!visited.contains(current)) {
-                visited.add(current);
-                for(Node neighbor : current.neighbors) {
-                    queueOriginal.add(neighbor);
-                    queueCopy.add(pairs.get(neighbor));
-                    currentCopy.neighbors.add(pairs.get(neighbor));
-                }
-            }
-        }
+//             if(!visited.contains(current)) {
+//                 visited.add(current);
+//                 for(Node neighbor : current.neighbors) {
+//                     queueOriginal.add(neighbor);
+//                     queueCopy.add(pairs.get(neighbor));
+//                     currentCopy.neighbors.add(pairs.get(neighbor));
+//                 }
+//             }
+//         }
       
         
         
-        return copy;
+//         return copy;
+//     }
+// }
+
+class Solution {
+    
+    private HashMap <Node, Node> visited = new HashMap <> ();
+    public Node cloneGraph(Node node) {
+        if (node == null) {
+            return node;
+        }
+        
+        if (visited.containsKey(node)) {
+            return visited.get(node);
+        }
+        
+        Node cloneNode = new Node(node.val, new ArrayList());
+        
+        visited.put(node, cloneNode);
+        
+        for (Node neighbor: node.neighbors) {
+            cloneNode.neighbors.add(cloneGraph(neighbor));
+        }
+        
+        return cloneNode;
     }
 }

@@ -6,14 +6,12 @@ class Solution {
             return false;
         }
         
-        
         List<Integer> pre = preMap.get(current);
         if(pre == null || pre.size() == 0) {
             return true;
         }
         
         visited[current] = true;
-        
         
         for(int p : pre) {
             if(dfs(preMap, p, visited) == false) {
@@ -24,8 +22,6 @@ class Solution {
         pre.clear();
         return true;
     }
-    
-    
     
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         HashMap<Integer, List<Integer>> preMap = new HashMap<>();

@@ -6,9 +6,14 @@ class Solution {
             return false;
         }
         
+        
+        List<Integer> pre = preMap.get(current);
+        if(pre == null) {
+            return true;
+        }
+        
         visited.add(current);
         
-        List<Integer> pre = preMap.getOrDefault(current, new ArrayList<>());
         
         for(int p : pre) {
             if(dfs(preMap, p, visited) == false) {

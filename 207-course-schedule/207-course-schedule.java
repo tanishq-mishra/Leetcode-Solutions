@@ -1,9 +1,7 @@
 class Solution {
     
-    public boolean dfs(HashMap<Integer, List<Integer>> preMap, int current, HashSet<Integer> visited, HashSet<Integer> alreadyTaken) {
-        if(alreadyTaken.contains(current)) {
-            return true;
-        }
+    public boolean dfs(HashMap<Integer, List<Integer>> preMap, int current, HashSet<Integer> visited) {
+        
         if(visited.contains(current)) {
             return false;
         }
@@ -13,11 +11,12 @@ class Solution {
         List<Integer> pre = preMap.getOrDefault(current, new ArrayList<>());
         
         for(int p : pre) {
-            if(dfs(preMap, p, visited,alreadyTaken) == false) {
+            if(dfs(preMap, p, visited) == false) {
                 return false;
             }
         }
         visited.remove(current);
+        pre.clear();
         return true;
     }
     
@@ -26,7 +25,7 @@ class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         HashMap<Integer, List<Integer>> preMap = new HashMap<>();
         HashSet<Integer> visited = new HashSet<>();
-        HashSet<Integer> alreadyTaken = new HashSet<>();
+        //HashSet<Integer> alreadyTaken = new HashSet<>();
         
         
         
@@ -39,10 +38,9 @@ class Solution {
         for(int i = 0; i<numCourses; i++) {
             if(preMap.containsKey(i)) {
                 visited.clear();
-                if(dfs(preMap, i, visited, alreadyTaken) == false) {
+                if(dfs(preMap, i, visited) == false) {
                     return false;
                 }
-                alreadyTaken.add(i);
             }
         }
         

@@ -6,16 +6,9 @@ class Solution {
             char[] anagram = strs[i].toCharArray();
             Arrays.sort(anagram);
             String anagramStr = new String(anagram);
-            
-            if(groupsMap.containsKey(anagramStr)) {
-                groupsMap.get(anagramStr).add(strs[i]);
-            } else {
-                 List<String> group = new ArrayList<>();
-                group.add(strs[i]);
-                groupsMap.put(anagramStr, group);
-            }
-            
-           
+            List<String> group = groupsMap.getOrDefault(anagramStr, new ArrayList<>());
+            group.add(strs[i]);
+            groupsMap.put(anagramStr, group);
             
         }
         

@@ -12,10 +12,10 @@ class Solution {
             
         }
         
-        List<List<String>> res = new ArrayList<>();
-        for(Map.Entry<String, List<String>> e : groupsMap.entrySet()) {
-            res.add(e.getValue());
-        }
+        List<List<String>> res = new ArrayList<List<String>>(groupsMap.values());
+//         for(Map.Entry<String, List<String>> e : groupsMap.entrySet()) {
+//             res.add(e.getValue());
+//         }
         
         
         return res;

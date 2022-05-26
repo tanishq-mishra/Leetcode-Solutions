@@ -2,12 +2,20 @@ class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String, List<String>> groupsMap = new HashMap<>();
         for(int i = 0; i<strs.length; i++) {
+            
             char[] anagram = strs[i].toCharArray();
             Arrays.sort(anagram);
             String anagramStr = new String(anagram);
-            List<String> group = groupsMap.getOrDefault(anagramStr, new ArrayList<>());
-            group.add(strs[i]);
-            groupsMap.put(anagramStr, group);
+            
+            if(groupsMap.containsKey(anagramStr)) {
+                groupsMap.get(anagramStr).add(strs[i]);
+            } else {
+                 List<String> group = new ArrayList<>();
+                group.add(strs[i]);
+                groupsMap.put(anagramStr, group);
+            }
+            
+           
             
         }
         

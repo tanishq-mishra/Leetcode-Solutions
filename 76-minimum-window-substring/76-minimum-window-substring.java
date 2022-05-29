@@ -4,8 +4,8 @@ class Solution {
             return "";
         }
         
-        HashMap<Character, Integer> sCount = new HashMap<>();
-        HashMap<Character, Integer> tCount = new HashMap<>();
+        HashMap<Character, Integer> sCount = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> tCount = new HashMap<Character, Integer>();
         
         for(int i = 0; i< t.length(); i++) {
             tCount.put(t.charAt(i), tCount.getOrDefault(t.charAt(i), 0) +1);

@@ -1,8 +1,13 @@
 class Solution {
     public String minWindow(String s, String t) {
+        if(t.length() > s.length()) {
+            return "";
+        }
+        
         if(t.length() == 0) {
             return "";
         }
+        
         
         HashMap<Character, Integer> sCount = new HashMap<Character, Integer>();
         HashMap<Character, Integer> tCount = new HashMap<Character, Integer>();

@@ -56,10 +56,6 @@ class Solution {
            
             
         }
-        //System.out.println(present);
-        
-        
-        
         return reSize != Integer.MAX_VALUE  ? s.substring(resLeft, resRight+1): "";
     }
 }

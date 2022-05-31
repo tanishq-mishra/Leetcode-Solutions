@@ -19,7 +19,7 @@ class Solution {
             while(stack.size() != 0 && stack.peek().value < temperatures[i]) {
                 StackEntry temp = stack.pop();
                 res[temp.index] = i - temp.index;
-                //stack.pop();
+                
             }
             StackEntry newTemp = new StackEntry(i, temperatures[i]);
             

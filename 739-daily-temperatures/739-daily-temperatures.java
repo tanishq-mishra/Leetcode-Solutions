@@ -27,7 +27,7 @@ class Solution {
             stack.add(newTemp);
         }
         
-        
         return res;
+        
     }
 }

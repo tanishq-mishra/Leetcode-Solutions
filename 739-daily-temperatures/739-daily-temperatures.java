@@ -13,17 +13,17 @@ class Solution {
     
     public int[] dailyTemperatures(int[] temperatures) {
         int[] res = new int[temperatures.length];
-        List<StackEntry> stack = new ArrayList<>();
+        Stack<StackEntry> stack = new Stack<>();
         
         for(int i = 0; i<temperatures.length; i++) {
-            while(stack.size() != 0 && stack.get(stack.size()-1).value < temperatures[i]) {
-                StackEntry temp = stack.get(stack.size()-1);
+            while(stack.size() != 0 && stack.peek().value < temperatures[i]) {
+                StackEntry temp = stack.pop();
                 res[temp.index] = i - temp.index;
-                stack.remove(stack.size()-1);
+                //stack.pop();
             }
             StackEntry newTemp = new StackEntry(i, temperatures[i]);
             
-            stack.add(newTemp);
+            stack.push(newTemp);
         }
         
         

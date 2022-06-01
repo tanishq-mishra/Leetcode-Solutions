@@ -34,8 +34,8 @@ class Solution {
         }
     
         int maxIndex = getMaxIndex(nums, start, end);
-        //System.out.println("Start: "+start + "  End: " + end + "  Mid: " +maxIndex);
         TreeNode current = new TreeNode(nums[maxIndex]);
+        
         
         current.left = helper(nums, start, maxIndex-1);
         current.right = helper(nums, maxIndex +1, end);

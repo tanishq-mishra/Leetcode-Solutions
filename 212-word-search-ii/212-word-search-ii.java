@@ -54,7 +54,7 @@ class Solution {
         
     }
     
-    public Set<String> result = new HashSet<>();
+    public List<String> result = new ArrayList<>();
     
     public void helper(char[][] board, TrieNode current, int i, int j, boolean[][] visited) {
         if(i >=board.length || i<0 || j>= board[0].length || j<0) {
@@ -69,6 +69,8 @@ class Solution {
              String s = current.children.get(board[i][j]).word;
              if(s != null) {
                 result.add(s);
+                 current.children.get(board[i][j]).word = null;
+                 
              }
             visited[i][j] = true;
             helper(board, current.children.get(board[i][j]), i, j+1,visited);

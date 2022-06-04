@@ -15,8 +15,8 @@ class LRUCache {
     
     public int get(int key) {
         
-        int value = list.getOrDefault(key,-1);
-        if(value == -1) {
+        Integer value = list.get(key);
+        if(value == null) {
             return -1;
         }
         list.remove(key);

@@ -2,12 +2,10 @@
 
 class LRUCache {
     int capacity;
-    int current;
     Map<Integer, Integer> list;
     public LRUCache(int capacity) {
         this.capacity = capacity;
-        current = 0;
-        list = new LinkedHashMap<>(){
+        list = new LinkedHashMap<Integer, Integer>(){
             protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest)
             {
                 return size() > capacity;

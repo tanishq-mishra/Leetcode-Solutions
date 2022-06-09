@@ -11,7 +11,7 @@ class Solution {
     }
     public int minEatingSpeed(int[] piles, int h) {
         int start = 1;
-        int end  = max(piles);
+        int end  = 1000000000;
         int mid = start + (end - start)/2;
         int result = 0;
         
@@ -23,7 +23,7 @@ class Solution {
             for(int p: piles) {
                 
                 time = time + p/mid;
-                if(p%mid != 0) {
+                if(p % mid != 0) {
                     time++;
                 }
             }

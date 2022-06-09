@@ -22,10 +22,7 @@ class Solution {
             time = 0;
             for(int p: piles) {
                 
-                time = time + p/mid;
-                if(p % mid != 0) {
-                    time++;
-                }
+                time += (p + mid - 1) / mid;
             }
             if(time > h) {
                 start = mid+1;

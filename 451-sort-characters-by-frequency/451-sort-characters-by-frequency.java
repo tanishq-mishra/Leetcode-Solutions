@@ -16,8 +16,8 @@ class Solution {
         
         while(!pq.isEmpty()) {
             char current = pq.poll();
-            
-            for(int i = 0; i< freqMap.get(current); i++) {
+            int freq = freqMap.get(current);
+            for(int i = 0; i<freq ; i++) {
                 res.append(current);
             }
             

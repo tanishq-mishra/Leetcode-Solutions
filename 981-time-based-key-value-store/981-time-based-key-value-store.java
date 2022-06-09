@@ -15,17 +15,14 @@ class TimeMap {
         if(vals == null) {
             return "";
         }
-        String res = vals.get(timestamp);
+        Map.Entry<Integer, String> res = vals.floorEntry(timestamp);
         if(res != null) {
-            return res;
+            return res.getValue();
         }
         
-        int start = vals.firstKey();
-        if(start > timestamp) {
-            return "";
-        }
         
-        return vals.floorEntry(timestamp).getValue();
+        
+        return "";
   
     }
 }

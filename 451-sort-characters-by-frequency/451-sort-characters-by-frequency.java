@@ -7,20 +7,18 @@ class Solution {
             freqMap.put(s.charAt(i), freqMap.getOrDefault(s.charAt(i),0)+1);
         }
         
-        PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((x,y) -> (y.getValue()- x.getValue()));
+        PriorityQueue<Character> pq = new PriorityQueue<>((x,y) -> (freqMap.get(y)- freqMap.get(x)));
         
-        for(Map.Entry<Character, Integer> m : freqMap.entrySet()) {
-            pq.add(m);
-        }
+        pq.addAll(freqMap.keySet());
         
         
         StringBuilder res = new StringBuilder();
         
         while(!pq.isEmpty()) {
-            Map.Entry<Character, Integer> current = pq.poll();
+            char current = pq.poll();
             
-            for(int i = 0; i< current.getValue(); i++) {
-                res.append(current.getKey());
+            for(int i = 0; i< freqMap.get(current); i++) {
+                res.append(current);
             }
             
         }

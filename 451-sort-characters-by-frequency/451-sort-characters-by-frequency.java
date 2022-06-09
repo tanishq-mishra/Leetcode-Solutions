@@ -12,7 +12,7 @@ class Solution {
         pq.addAll(freqMap.keySet());
         
         
-        StringBuffer res = new StringBuffer();
+        StringBuilder res = new StringBuilder();
         
         while(!pq.isEmpty()) {
             char current = pq.poll();

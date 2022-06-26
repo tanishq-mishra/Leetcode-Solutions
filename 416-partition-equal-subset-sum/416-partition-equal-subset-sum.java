@@ -60,10 +60,13 @@ class Solution {
         }
         sum /= 2; 
         boolean[][] dp = new boolean[nums.length][sum+1];
+        
+        // Performing step 2 (base cases)
         for(int i = 0 ; i<nums.length; i++) {
             dp[i][0] = true;
-            
         }
+        
+        // two nested looks because two changing parameters or states
         for(int i = nums.length-2; i>=0; i--) {
              for(int target = 1; target <=sum; target++) {
                  
@@ -79,4 +82,7 @@ class Solution {
         
         return dp[0][sum];
     }
+    
+    
+    
 }   

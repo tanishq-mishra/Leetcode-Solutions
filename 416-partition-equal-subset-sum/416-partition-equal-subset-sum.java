@@ -64,7 +64,6 @@ class Solution {
             dp[i][0] = true;
             
         }
-        //dp[0][nums[0]] = true;
         for(int i = nums.length-2; i>=0; i--) {
              for(int target = 1; target <=sum; target++) {
                  

@@ -1,10 +1,8 @@
 class Solution {
-    public HashMap<Integer, HashMap<Integer, Boolean>> memo = new HashMap<>();
+    public int[][] memo;
     public boolean helper(int sum, int[] nums, int index) { 
-        if(memo.containsKey(index)) {
-            if(memo.get(index).containsKey(sum)) {
-                return memo.get(index).get(sum);
-            }
+        if(memo[index][sum] != 0) {
+            return memo[index][sum] == 1;
         }
         if(sum == 0) {
             return true;
@@ -23,9 +21,7 @@ class Solution {
              take = helper(sum-nums[index], nums, index+1);
         }
         
-        HashMap<Integer, Boolean> temp = memo.getOrDefault(index, new HashMap<>());
-        temp.put(sum, noTake || take);
-        memo.put(index, temp);
+        memo[index][sum] = noTake || take ? 1: -1;
         
         return noTake || take;
     }
@@ -38,11 +34,8 @@ class Solution {
         if(sum % 2 != 0) {
             return false;
         }
-        
-        sum /= 2;
-        
-        
-        
+        memo = new int[nums.length][sum+1];
+        sum /= 2; 
         return helper(sum, nums, 0);
     }
 }   

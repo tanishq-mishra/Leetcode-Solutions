@@ -4,7 +4,7 @@ class Solution {
         if(i<0 || j<0 || obstacleGrid[i][j] == 1) {
             return 0;
         }
-        if(memo[i][j] != 0) {
+        if(memo[i][j] != -1) {
             return memo[i][j];
         }
         if(i == 0  && j == 0) {
@@ -19,7 +19,9 @@ class Solution {
     
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int[][] memo = new int[obstacleGrid.length][obstacleGrid[0].length];
-        //Arrays.fill(memo, -1);
+        for(int[] m : memo) {
+            Arrays.fill(m, -1);
+        }
         return helper(obstacleGrid, obstacleGrid.length-1,obstacleGrid[0].length-1, memo);
     }
 }

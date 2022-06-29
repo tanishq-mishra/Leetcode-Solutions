@@ -10,10 +10,14 @@ class Solution {
         if(i == 0  && j == 0) {
             return 1;
         }
-        
-        
-        int left = helper(obstacleGrid, i-1, j,memo);
-        int up = helper(obstacleGrid, i, j-1,memo);
+        int left = 0;
+        if(i>0 && obstacleGrid[i-1][j] == 0) {
+            left = helper(obstacleGrid, i-1, j,memo);
+        }
+        int up = 0;
+        if(j>0 && obstacleGrid[i][j-1] == 0) {
+            up = helper(obstacleGrid, i, j-1,memo);
+        }
         memo[i][j] = left+up;
         return memo[i][j];
     }

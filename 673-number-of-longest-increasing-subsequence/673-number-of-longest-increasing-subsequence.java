@@ -19,8 +19,6 @@ class Solution {
             }
             maxDP = Math.max(maxDP, dp[i]);
         }
-        
-        //System.out.println(maxDP);
         for(int i = 0; i<nums.length; i++) {
             if(dp[i] == maxDP) {
                 maxCount += count[i];

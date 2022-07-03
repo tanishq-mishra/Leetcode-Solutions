@@ -38,9 +38,9 @@ class Solution {
     public int minPathSum(int[][] grid) {
         int[][] dp = new int[grid.length][grid[0].length];
         
-        for(int[] d :dp) {
-            Arrays.fill(d, 1000000);
-        }
+        // for(int[] d :dp) {
+        //     Arrays.fill(d, 1000000);
+        // }
         
         // base case
         dp[0][0] = grid[0][0];

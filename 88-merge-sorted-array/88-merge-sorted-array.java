@@ -35,13 +35,15 @@ class Solution {
         int j = n-1;
         int k = nums1.length-1;
         
-        while(i>=0 && j>=0 && k > i) {
+        while(i>=0 && j>=0) {
             if(nums2[j] > nums1[i]) {
                 nums1[k--] = nums2[j--]; 
             } else {
                 nums1[k--] = nums1[i--];
             }
         }
+        
+        // if there are remaining elements in nums2 that have not been added yet.
         while(j>=0) {
             nums1[k--] = nums2[j--];
         }

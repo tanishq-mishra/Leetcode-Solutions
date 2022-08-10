@@ -13,6 +13,8 @@
  *     }
  * }
  */
+
+// get the balanced tree by taking the middle element of the array, and then recursively taking the middle of the left half, and the right half.
 class Solution {
     public TreeNode helper(int[] nums, int start, int end) {
         if(start > end) {

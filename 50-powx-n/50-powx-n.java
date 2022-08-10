@@ -1,6 +1,6 @@
 class Solution {
     public double myPow(double x, int n) {
-        // binary Exponentiation
+        // binary Exponentiation TC : O(logn)
         long nn = n;
         double ans = 1.0;
         if(nn <0) {

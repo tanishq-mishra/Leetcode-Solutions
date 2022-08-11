@@ -37,7 +37,7 @@ class Solution {
         j = mid+1;
         k = 0;
         
-        
+        // sorting
         while(i<= mid && j <=end) {
             if(nums[i] < nums[j]) {
                 res[k++] = nums[i++];

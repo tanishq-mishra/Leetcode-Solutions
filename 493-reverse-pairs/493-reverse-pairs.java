@@ -21,7 +21,10 @@ class Solution {
         int i = start;
         int j = mid+1;
         int k = 0;
-        
+        // checking inversions
+        // the left half and the right half are sorted. 
+        // if(nums[k] > 2* nums[j]) then nums[i] > 2*nums[j], where i>=k;
+        // that's why we can directly add all the elements that are left of nums[j] in the 2nd half directly without recounting.
         for(i = start; i<=mid;i++) {
             while(j<=end && nums[i] > (2 * (long) nums[j])) {
                 j++;

@@ -1,0 +1,75 @@
+// class Solution {
+//     public int reversePairs(int[] nums) {
+//         // brute force
+//         int counter = 0;
+//         for(int i = 0; i< nums.length-1; i++) {
+//             for(int j = i+1; j<nums.length; j++) {
+//                 if(nums[i] - nums[j] > nums[j])
+//                         counter++;
+//             }
+//         }
+//         return counter;
+//     }
+// }
+
+// using merge sort (nlogn)
+class Solution {
+    int reverseCounter = 0;
+    public void  merge(int[] nums, int start, int mid, int end)  {
+        int[] res = new int[end-start+1];
+        
+        int i = start;
+        int j = mid+1;
+        int k = 0;
+        
+        for(i = start; i<=mid;i++) {
+            while(j<=end && nums[i] > (2 * (long) nums[j])) {
+                j++;
+            }
+            reverseCounter += (j-(mid+1));
+        }
+        
+        
+        i = start;
+        j = mid+1;
+        k = 0;
+        
+        
+        while(i<= mid && j <=end) {
+            if(nums[i] < nums[j]) {
+                res[k++] = nums[i++];
+            } else {
+                res[k++] = nums[j++];
+            }
+        }
+        
+        while(i<= mid) {
+            res[k++] = nums[i++];
+        }
+        
+        while(j<=end) {
+            res[k++] = nums[j++];
+        }
+        
+        i = start;
+        k = 0;
+        while(i<=end) {
+            nums[i++] =res[k++]; 
+        }
+        
+    }
+    public void mergeSort(int[] nums, int start, int end)  {
+        if(start < end) {
+            int mid  = (start +end)/2;
+            //System.out.println("Start: " + start + "   End: " + end);
+            mergeSort(nums, start, mid);
+            mergeSort(nums, mid+1, end);
+            merge(nums, start, mid, end);
+        }
+    }
+    
+    public int reversePairs(int[] nums) {
+        mergeSort(nums,0, nums.length-1);
+        return reverseCounter;
+    }
+}

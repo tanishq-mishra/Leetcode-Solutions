@@ -29,6 +29,7 @@ class Solution {
             while(j<=end && nums[i] > (2 * (long) nums[j])) {
                 j++;
             }
+            // subtracting mid+1 because that is j's initial value, which offsets the count.
             reverseCounter += (j-(mid+1));
         }
         

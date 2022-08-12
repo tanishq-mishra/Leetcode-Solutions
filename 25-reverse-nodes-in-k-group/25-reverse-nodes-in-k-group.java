@@ -28,12 +28,7 @@ class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         
         ArrayList<ListNode> groups = new ArrayList<>();
-        
-        
-        
-        
-        
-        
+
         ListNode prev = null;
         ListNode current = head;
         int length = 0;

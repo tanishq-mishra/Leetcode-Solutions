@@ -23,11 +23,6 @@ class Solution {
         
         current.next = prev;
         ListNode dummy = current;
-        // while(dummy != null) {
-        //     System.out.print(dummy.val + ", ");
-        //     dummy  = dummy.next;
-        // }
-        //System.out.println();
         return current;
     }
     public ListNode reverseKGroup(ListNode head, int k) {
@@ -75,12 +70,12 @@ class Solution {
         for(int i = 0; i< groups.size()-skipLast; i++) {
             groups.set(i, reverse(groups.get(i)));
         }
-        //System.out.println(groups.get(0).val);
+        
          ListNode dummy = null;
         for(int i = 0; i< groups.size()-1; i++) {
             dummy = groups.get(i);
             while(dummy.next != null) {
-                //System.out.print(dummy.val + ", ");
+                
                 dummy  = dummy.next;
             }
             dummy.next = groups.get(i+1);
@@ -88,9 +83,7 @@ class Solution {
         
         if(dummy != null)
             dummy.next = groups.get(groups.size()-1);
-        
-        //System.out.println(groups.size());
-        
+
         return groups.get(0);
         
     }

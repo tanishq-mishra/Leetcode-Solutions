@@ -10,7 +10,7 @@ class Solution {
                 current = 0;
             }
             
-            max = Math.max(max, current);
+            max = max < current ? current: max;
         }
         
         

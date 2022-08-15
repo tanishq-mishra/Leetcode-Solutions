@@ -1,22 +1,4 @@
 class Solution {
-    int extractNumber(char a, char b) {
-        int first = 0;
-        int second = 0;
-        
-        char[] romans = new char[]{'I','V','X', 'L', 'C','D','M'};
-        
-        for(int i = 0; i<romans.length; i++) {
-            if(romans[i] == a) {
-                first = i;
-            }
-            if(romans[i] == b) {
-                second = i;
-            }
-        }
-        
-        return first-second;
-        
-    }
     public int romanToInt(String s) {
         int number = 0;
         HashMap<Character, Integer> romanMap = new HashMap<>();

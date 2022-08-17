@@ -28,8 +28,6 @@ class Solution {
     // converted tabulation
     public int jump(int[] nums) {
         int[] dp = new int[nums.length];
-        
-        
         for ( int i = nums.length-2; i>=0; i--) {
             
             int min = 1000000;

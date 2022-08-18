@@ -8,8 +8,8 @@ class Solution {
         }
         
         PriorityQueue <Integer> pq = new PriorityQueue<>((a,b) -> (Integer.compare(b,a)));
-        for(Map.Entry<Integer, Integer> e : freqMap.entrySet()) {
-            pq.add(e.getValue());
+        for(int e : freqMap.values()) {
+            pq.add(e);
         }
         
         int tbd = 0;

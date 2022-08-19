@@ -1,17 +1,13 @@
 class Solution {
-   int[] facts = new int[10];
     public int getFact(int n) {
-        if(facts[n] != 0) {
-            return facts[n];
-        }
+
         if(n == 0) {
             return 0;
         }
         if(n == 1) {
             return 1;
         }
-        facts[n] = n * getFact(n-1);
-        return facts[n];
+        return n * getFact(n-1);
     }
     public String getPermutation(int n, int k) {
         k = k-1;
@@ -27,8 +23,9 @@ class Solution {
         // }
         String res = "";
         int currentLevel = n;
+        int fact = getFact(currentLevel);
         while(currentLevel >1) {
-            int fact = getFact(currentLevel-1);
+            fact = fact/currentLevel;
             int index = k/fact;
             res += set.get(index);
             k = k%fact;

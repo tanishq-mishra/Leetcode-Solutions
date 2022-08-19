@@ -1,12 +1,17 @@
 class Solution {
+   int[] facts = new int[10];
     public int getFact(int n) {
+        if(facts[n] != 0) {
+            return facts[n];
+        }
         if(n == 0) {
             return 0;
         }
         if(n == 1) {
             return 1;
         }
-        return n * getFact(n-1);
+        facts[n] = n * getFact(n-1);
+        return facts[n];
     }
     public String getPermutation(int n, int k) {
         k = k-1;
@@ -16,6 +21,10 @@ class Solution {
             set.add(c);
             c++;
         }
+        
+        // for(char ch : set) {
+        //     System.out.println(ch);
+        // }
         String res = "";
         int currentLevel = n;
         while(currentLevel >1) {

@@ -14,51 +14,17 @@
  * }
  */
 class Solution {
-    
-    public List<Integer> left;
-    public List<Integer> right;
-    public void traverseLeftSub(TreeNode root) {
-        if(root == null) {
-            left.add(null);
-            return;
-        }
-            
-        left.add(root.val);
-        traverseLeftSub(root.left);
-        traverseLeftSub(root.right);
-    }
-    public void traverseRightSub(TreeNode root) {
-        if(root == null) {
-            right.add(null);
-            return;
-        }
-            
-        right.add(root.val);
-        traverseRightSub(root.right);
-        traverseRightSub(root.left);
-    }
-    
     public boolean isSymmetric(TreeNode root) {
-        if(root == null) {
-            return true;
+        return root == null || helper(root.left, root.right);
+    }
+    
+    public boolean helper(TreeNode left, TreeNode right){
+        if (left == null || right == null){
+            return left == right;
         }
-        left = new ArrayList<>();
-        right = new ArrayList<>();
-        
-        traverseLeftSub(root.left);
-        traverseRightSub(root.right);
-        
-        if(left.size() != right.size()) {
+        if (left.val != right.val){
             return false;
         }
-        
-        
-        for(int i = 0; i<left.size(); i++) {
-            if(left.get(i) != right.get(i)) {
-                return false;
-            }
-        }
-        
-        return true;
+        return helper(left.left, right.right) && helper(left.right, right.left);
     }
 }

@@ -26,9 +26,10 @@ class Solution {
             res.add(path + root.val);
             return;
         }
-        
-        helper(root.left, path + root.val+"->");
-        helper(root.right, path + root.val+"->");
+        path += root.val;
+        path +="->";
+        helper(root.left, path);
+        helper(root.right, path);
         
     }
     public List<String> binaryTreePaths(TreeNode root) {

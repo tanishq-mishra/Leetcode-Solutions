@@ -27,7 +27,7 @@ class Solution {
             res.add(path);
             return;
         }
-        path += String.valueOf(root.val);
+        path += Integer.toString(root.val);
         path +="->";
         helper(root.left, path);
         helper(root.right, path);

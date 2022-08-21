@@ -23,7 +23,8 @@ class Solution {
         
         
         if(root.left == null && root.right == null) {
-            res.add(path + root.val);
+            path += String.valueOf(root.val);
+            res.add(path);
             return;
         }
         path += Integer.toString(root.val);

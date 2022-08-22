@@ -1,16 +1,39 @@
 class Solution {
     public boolean isPowerOfFour(int n) {
-        if(n == 0) {
-            return false;
-        }
+        int stepUp = 1;
         if(n == 1) {
             return true;
         }
-        double logExp = Math.log(n)/Math.log(4);
-        if(Math.floor(logExp) == logExp) {
+        
+        if(n == 0) {
+            return false;
+        }
+        if(n%4 != 0) {
+            return false;
+        }
+        boolean up = false;
+        while(stepUp < n) {
+            if(up)
+                stepUp*=4;
+            else {
+                
+                double check = (double)n/4.0;
+                if(Math.floor(check) != check) {
+                    return false;
+                }
+                n = (int)check;
+            }
+                
+            up= !up;
+        }
+        
+        if(stepUp == n) {
             return true;
         }
         
         return false;
+        
+        
+        
     }
 }

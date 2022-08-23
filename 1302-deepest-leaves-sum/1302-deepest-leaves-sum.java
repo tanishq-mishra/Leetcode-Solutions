@@ -22,7 +22,10 @@ class Solution {
             return;
         }
         if(node.left == null && node.right == null) {
-            maxDepth = Math.max(maxDepth, level);
+            if(maxDepth < level) {
+                maxDepth = level;
+            }
+           
             return;
         }
         getMaxDepth(node.left, level+1);

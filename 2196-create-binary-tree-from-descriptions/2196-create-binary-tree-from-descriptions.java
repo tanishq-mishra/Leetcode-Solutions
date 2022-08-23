@@ -38,11 +38,11 @@ class Solution {
         for(int[] d : descriptions) {
             nodes.remove(d[1]);
         }
-        TreeNode root = null;
-        for(int node : nodes.keySet()) {
-            root = nodes.get(node);
-            break;
-        }
+        TreeNode root = nodes.get(nodes.keySet().toArray()[0]);
+        // for(int node : nodes.keySet()) {
+        //     root = nodes.get(node);
+        //     break;
+        // }
         
         
         return root;

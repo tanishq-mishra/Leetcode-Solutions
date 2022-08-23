@@ -18,7 +18,7 @@ class Solution {
     public int sum = 0;
     public void getMaxDepth(TreeNode node, int level) {
         if(node == null) {
-            maxDepth = Math.max(maxDepth, level);
+            
             return;
         }
         if(node.left == null && node.right == null) {

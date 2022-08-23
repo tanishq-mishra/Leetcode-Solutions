@@ -36,6 +36,7 @@ class Solution {
         if(level == maxDepth) {
             
             sum+=node.val;
+            return;
         }
         
         helper(node.left, level+1);

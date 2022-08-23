@@ -39,10 +39,7 @@ class Solution {
             nodes.remove(d[1]);
         }
         TreeNode root = nodes.get(nodes.keySet().toArray()[0]);
-        // for(int node : nodes.keySet()) {
-        //     root = nodes.get(node);
-        //     break;
-        // }
+        
         
         
         return root;

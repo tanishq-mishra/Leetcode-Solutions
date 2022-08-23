@@ -14,18 +14,30 @@
  * }
  */
 class Solution {
-    public List<Integer> levels = new ArrayList<>();
+    public int maxDepth = 0;
+    public int sum = 0;
+    public void getMaxDepth(TreeNode node, int level) {
+        if(node == null) {
+            maxDepth = Math.max(maxDepth, level);
+            return;
+        }
+        if(node.left == null && node.right == null) {
+            maxDepth = Math.max(maxDepth, level);
+            return;
+        }
+        getMaxDepth(node.left, level+1);
+        getMaxDepth(node.right, level+1);
+    }
     
     public void helper(TreeNode node, int level) {
         if(node == null) {
             return;
         }
-        
-        if(levels.size() > level) {
-            levels.set(level, levels.get(level)+node.val);
-        } else {
-            levels.add(node.val);
+        if(level == maxDepth) {
+            
+            sum+=node.val;
         }
+        
         helper(node.left, level+1);
         helper(node.right, level+1);
     }
@@ -37,8 +49,9 @@ class Solution {
         if(root.left == null && root.right == null) {
             return root.val;
         }
+        getMaxDepth(root, 0);
         helper(root, 0);
         
-        return levels.get(levels.size()-1);
+        return sum;
     }
 }

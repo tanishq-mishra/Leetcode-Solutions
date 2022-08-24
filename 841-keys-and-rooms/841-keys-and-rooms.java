@@ -25,10 +25,7 @@ class Solution {
             
             
         }
-            
-        
-        
-        
+
         return (usedKeys.size() == rooms.size());
     }
     

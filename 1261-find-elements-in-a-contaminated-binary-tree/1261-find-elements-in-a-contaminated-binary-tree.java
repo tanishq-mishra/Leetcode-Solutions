@@ -15,10 +15,10 @@
  */
 class FindElements {
     
-    HashSet<Integer> nodeSet ;
+    BitSet nodeSet ;
     public FindElements(TreeNode root) {
         
-        nodeSet = new HashSet<Integer>();
+        nodeSet = new BitSet();
         
         addNodes(root, 0);
     }
@@ -28,7 +28,7 @@ class FindElements {
         if(current == null) {
             return;
         }
-        nodeSet.add(val);
+        nodeSet.set(val);
         
         addNodes(current.left, (val * 2) + 1);
         addNodes(current.right, (val * 2) + 2);
@@ -37,7 +37,7 @@ class FindElements {
     }
     public boolean find(int target) {
         
-        return nodeSet.contains(target);
+        return nodeSet.get(target);
     }
 }
 

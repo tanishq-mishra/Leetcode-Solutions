@@ -14,54 +14,30 @@
  * }
  */
 class FindElements {
-    TreeNode root;
+    
+    BitSet nodeSet ;
     public FindElements(TreeNode root) {
-        this.root = root;
         
-        if(root != null) 
-            root.val = 0;
-        //deContaminate(root);
+        nodeSet = new BitSet();
+        
+        addNodes(root, 0);
     }
-    
-//     public void deContaminate(TreeNode current) {
-//         if(current == null)
-//             return;
-//         if(current.left != null) {
-//             current.left.val = 2 * current.val + 1;
-//         }
-        
-//         if(current.right != null) {
-//             current.right.val = 2 * current.val + 2;
-//         }
-        
-//         deContaminate(current.left);
-//         deContaminate(current.right);
-//     }
-    
 
-    public boolean seek(TreeNode current, int target) {
+
+    public void addNodes(TreeNode current, int val) {
         if(current == null) {
-            return false;
+            return;
         }
+        nodeSet.set(val);
         
-        if(current.val == target) {
-            return true;
-        }
+        addNodes(current.left, (val * 2) + 1);
+        addNodes(current.right, (val * 2) + 2);
         
-        if(current.left != null) {
-            current.left.val = 2 * current.val + 1;
-        }
-        
-        if(current.right != null) {
-            current.right.val = 2 * current.val + 2;
-        }
-        
-        return seek(current.right, target) || seek(current.left, target);
         
     }
     public boolean find(int target) {
         
-        return seek(root, target);
+        return nodeSet.get(target);
     }
 }
 

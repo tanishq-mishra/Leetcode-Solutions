@@ -20,25 +20,23 @@ class FindElements {
         
         if(root != null) 
             root.val = 0;
-        deContaminate(root);
+        //deContaminate(root);
     }
     
-    public void deContaminate(TreeNode current) {
-        if(current == null)
-            return;
-        if(current.left != null) {
-            current.left.val = 2 * current.val + 1;
-        }
+//     public void deContaminate(TreeNode current) {
+//         if(current == null)
+//             return;
+//         if(current.left != null) {
+//             current.left.val = 2 * current.val + 1;
+//         }
         
-        if(current.right != null) {
-            current.right.val = 2 * current.val + 2;
-        }
+//         if(current.right != null) {
+//             current.right.val = 2 * current.val + 2;
+//         }
         
-        deContaminate(current.left);
-        deContaminate(current.right);
-        
-        
-    }
+//         deContaminate(current.left);
+//         deContaminate(current.right);
+//     }
     
 
     public boolean seek(TreeNode current, int target) {
@@ -48,6 +46,14 @@ class FindElements {
         
         if(current.val == target) {
             return true;
+        }
+        
+        if(current.left != null) {
+            current.left.val = 2 * current.val + 1;
+        }
+        
+        if(current.right != null) {
+            current.right.val = 2 * current.val + 2;
         }
         
         return seek(current.right, target) || seek(current.left, target);

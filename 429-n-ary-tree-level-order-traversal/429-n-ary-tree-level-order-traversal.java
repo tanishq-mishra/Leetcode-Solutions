@@ -18,7 +18,10 @@ class Node {
 */
 
 class Solution {
-    public List<List<Integer>> levelOrder(Node root) {
+    // bfs solution
+    
+    
+/*    public List<List<Integer>> levelOrder(Node root) {
         
         ArrayList<Node> queue = new ArrayList<Node>();
         
@@ -43,14 +46,35 @@ class Solution {
             }
             queue.addAll(nextLevel);
             res.add(currentLevelResult);
-            
         }
-        
-        
-        
+
         return res;
-        
-        
-        
     }
+*/
+    
+    // dfs solution
+    
+    public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        helper(ans,root,0);
+        return ans;
+    }
+    
+    public void helper(List<List<Integer>> ans,Node node,int depth){
+        if(node==null){
+            return;
+        }
+        if(depth>ans.size()-1){
+            List<Integer> trav = new ArrayList<>();
+            trav.add(node.val);
+            ans.add(trav);
+        }
+        else{
+            ans.get(depth).add(node.val);
+        }
+        for(int i=0;i<node.children.size();i++){
+            helper(ans,node.children.get(i),depth+1);
+        }
+    }
+    
 }

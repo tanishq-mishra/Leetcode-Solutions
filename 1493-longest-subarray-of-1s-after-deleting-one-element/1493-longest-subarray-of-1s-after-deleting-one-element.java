@@ -17,9 +17,12 @@ class Solution {
                 start = zeroIndex+1;
                 zeroIndex = end;
                 
+            } 
+            if(end-start > length) {
+                length = end-start;
             }
             
-            length = Math.max(end-start, length);
+            
         }
         
         

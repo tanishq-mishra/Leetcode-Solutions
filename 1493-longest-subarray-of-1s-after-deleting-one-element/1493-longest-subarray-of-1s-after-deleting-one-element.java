@@ -9,15 +9,14 @@ class Solution {
         boolean hasZero = false;
         while(end < nums.length-1) {
             end++;
-            if(nums[end] == 0 && !hasZero) {
-                zeroIndex = end;
-                hasZero =true;
-            } else if(nums[end] == 0 && hasZero) {
-                
-                start = zeroIndex+1;
-                zeroIndex = end;
-                
-            } 
+            if(nums[end] == 0) {
+                if(zeroIndex == -1) {
+                    zeroIndex = end;
+                } else {
+                    start = zeroIndex+1;
+                    zeroIndex = end;
+                }
+            }
             if(end-start > length) {
                 length = end-start;
             }

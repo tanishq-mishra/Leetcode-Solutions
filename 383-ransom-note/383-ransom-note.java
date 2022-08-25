@@ -3,25 +3,30 @@ class Solution {
         if(magazine.length() < ransomNote.length()) {
             return false;
         }
-        HashMap<Character, Integer> ransomFreq = new HashMap<>();
+        int[] ransomFreq = new int[26];
         
-        HashMap<Character, Integer> magaFreq = new HashMap<>();
-        
+        int[] magaFreq = new int[26];
+        int ransomTotal = 0;
         for(int i = 0; i< ransomNote.length(); i++) {
             char currentCharacter = ransomNote.charAt(i);
-            ransomFreq.put(currentCharacter, ransomFreq.getOrDefault(currentCharacter, 0)+1);
+            ransomFreq[currentCharacter-'a']++; 
+            if(ransomFreq[currentCharacter-'a'] == 1) {
+                ransomTotal++;
+            }
+            //ransomFreq.put(currentCharacter, ransomFreq.getOrDefault(currentCharacter, 0)+1);
         }
         int matchedFrequency = 0;
         for(int i = 0; i< magazine.length(); i++) {
             char currentCharacter = magazine.charAt(i);
-            if(ransomFreq.containsKey(currentCharacter)) {
-                magaFreq.put(currentCharacter, magaFreq.getOrDefault(currentCharacter, 0)+1);
-                if(magaFreq.get(currentCharacter).equals(ransomFreq.get(currentCharacter)) ) {
+            if(ransomFreq[currentCharacter-'a'] != 0) {
+                magaFreq[currentCharacter-'a']++;
+                
+                if(magaFreq[currentCharacter-'a'] == ransomFreq[currentCharacter-'a']) {
                     matchedFrequency++;
                 }
             }
             
-            if(matchedFrequency == ransomFreq.size()) {
+            if(matchedFrequency == ransomTotal) {
                 return true;
             }
         }

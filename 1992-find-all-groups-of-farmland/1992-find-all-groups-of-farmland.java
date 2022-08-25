@@ -37,17 +37,9 @@ class Solution {
             }
         }
         
-        int[][] result = new int[res.size()][4];
-        int i = 0;
-        for(int[] r : res) {
-            result[i][0] = r[0];
-            result[i][1] = r[1];
-            result[i][2] = r[2];
-            result[i][3] = r[3];
-            i++;
-        }
+
         
-        return result;
+        return res.toArray(new int[0][]);
     }
 }
 

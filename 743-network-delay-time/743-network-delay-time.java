@@ -1,8 +1,8 @@
 class Solution {
     public int networkDelayTime(int[][] times, int n, int k) {
-        double[] costs = new double[n+1];
+        int[] costs = new int[n+1];
         
-        Arrays.fill(costs, Double.POSITIVE_INFINITY);
+        Arrays.fill(costs, 100000000);
         
         costs[k] = 0;
         // for(int i = 0; i<costs.length; i++) {
@@ -27,12 +27,14 @@ class Solution {
             
         }
         
-        double max = Double.NEGATIVE_INFINITY;
+        int max = -100000000;
         for(int i = 1; i<=n; i++) {
             //System.out.print(costs[i] + "  ");
+            
             max = Math.max(max, costs[i]);
         }
+        //System.out.println();
         
-        return max == Double.POSITIVE_INFINITY? -1 : (int)max;
+        return max == 100000000? -1 : max;
     }
 }

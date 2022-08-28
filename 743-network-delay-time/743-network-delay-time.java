@@ -1,19 +1,19 @@
 class Solution {
     public int networkDelayTime(int[][] times, int n, int k) {
-        int[] costs = new int[n+1];
+        int[] costs = new int[n];
         
         Arrays.fill(costs, 100000000);
         
-        costs[k] = 0;
+        costs[k-1] = 0;
         // for(int i = 0; i<costs.length; i++) {
         //     System.out.print(costs[i] + "  ");
         // }
-        for(int i = 1; i<=n; i++) {
+        for(int i = 0; i<n; i++) {
             
             
             for(int[] t: times) {
-                int source = t[0];
-                int destination = t[1];
+                int source = t[0]-1;
+                int destination = t[1]-1;
                 int cost = t[2];
                 // if(costs[source] == Integer.MAX_VALUE)
                 //     continue;
@@ -28,7 +28,7 @@ class Solution {
         }
         
         int max = -100000000;
-        for(int i = 1; i<=n; i++) {
+        for(int i = 0; i<n; i++) {
             //System.out.print(costs[i] + "  ");
             
             max = Math.max(max, costs[i]);

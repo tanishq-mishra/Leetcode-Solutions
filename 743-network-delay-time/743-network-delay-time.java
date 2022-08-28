@@ -15,6 +15,8 @@ class Solution {
                 int source = t[0]-1;
                 int destination = t[1]-1;
                 int cost = t[2];
+                if(costs[source] == 100000000)
+                    continue;
                 costs[destination] = Math.min(costs[destination], costs[source] + cost);
             }
 
